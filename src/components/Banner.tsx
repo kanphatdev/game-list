@@ -7,7 +7,7 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ gameBanner }) => {
   useEffect(() => {
-    console.log(gameBanner);
+   
   }, [gameBanner]);
 
   const { theme } = useTheme();
