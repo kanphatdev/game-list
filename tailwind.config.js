@@ -20,6 +20,7 @@ export default {
         softYellow: '#f9e784',
         peach: '#e58f65',
         coralRed: '#d05353',
+        navyBlue: '#003049',
       },
     },
   },
