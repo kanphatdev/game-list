@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 // API key
-const key: string = "8448b8665d2647479542a35fbf581c7a";
+const key: string = "";
 
 // Create an Axios instance with base URL
 const axiosCreate: AxiosInstance = axios.create({
