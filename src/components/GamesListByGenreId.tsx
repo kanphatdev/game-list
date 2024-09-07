@@ -15,9 +15,10 @@ interface Game {
 
 interface GamesListByGenreIdProps {
   gameList: Game[]; // Define the prop type as an array of Game objects
+  headerText: string; // Prop for dynamic header text
 }
 
-const GamesListByGenreId: React.FC<GamesListByGenreIdProps> = ({ gameList }) => {
+const GamesListByGenreId: React.FC<GamesListByGenreIdProps> = ({ gameList, headerText }) => {
   useEffect(() => {
     console.log(gameList);
   }, [gameList]);
@@ -29,12 +30,12 @@ const GamesListByGenreId: React.FC<GamesListByGenreIdProps> = ({ gameList }) => 
     dark: {
       cardBackground: "bg-deepBlue",
       cardText: "text-lightPurple",
-      iconColor: "text-coralRed",  // Default icon color for dark mode
+      iconColor: "text-coralRed", // Default icon color for dark mode
     },
     light: {
       cardBackground: "bg-lightYellow",
       cardText: "text-navyBlue",
-      iconColor: "text-peach",  // Default icon color for light mode
+      iconColor: "text-peach", // Default icon color for light mode
     },
   };
 
@@ -43,9 +44,8 @@ const GamesListByGenreId: React.FC<GamesListByGenreIdProps> = ({ gameList }) => 
 
   return (
     <div className="p-4">
-      <h2 className="capitalize font-bold text-2xl mb-6"> {/* Added margin-bottom */}
-        popular game
-      </h2>
+      {/* Use the dynamic header text */}
+      <h2 className="capitalize font-bold text-2xl mb-6">{headerText}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {gameList.map((game) => (
           <div
@@ -69,8 +69,7 @@ const GamesListByGenreId: React.FC<GamesListByGenreIdProps> = ({ gameList }) => 
               <h2 className="flex items-center gap-4">
                 {game.rating && (
                   <span className="flex items-center">
-                    <Star className={`mr-1 ${currentColors.iconColor}`} />{" "}
-                    {game.rating}
+                    <Star className={`mr-1 ${currentColors.iconColor}`} /> {game.rating}
                   </span>
                 )}
                 {game.reviews_count && (
